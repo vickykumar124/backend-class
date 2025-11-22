@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!-- button#btn$*5 shortcut -->
+<button id="Get">GET Request</button>
+<br><br>
+<button id="Post">POST Request</button>
+<br><br>
+<button id="Patch">PATCH Request</button>
+<br>
+<br>
+<button id="Delete">DELETE Request</button>
+<br>
+<br>
+<button id="GetALL">Get All  Posts</button>
+<script>
+
+  const getBtn = document.querySelector("#Get");
+  const PostBtn = document.querySelector("#Post");
+  const patchBtn = document.querySelector("#Patch");
+  const DeleteBtn = document.querySelector("#Delete");
+ const GetALLBtn = document.querySelector("#GetALL");
+    
+      
+
+// get all posts
+
+  GetALLBtn.addEventListener 
+    ("click",  async function() {
+        //you want to get something from the server--->wu use  get request;
+      const resp=  await  fetch('https://dummyjson.com/posts',{
+          method:"GET"
+           })
+             const respdata = await resp.json();
+            console.log( "status",resp.status)
+     console.log("body",respdata)
+      })
+
+
+
+
+
+
+
+
+
+
+    
+    //get a post from server
+    getBtn.addEventListener 
+    ("click",  async function() {
+        //you want to get something from the server--->wu use  get request;
+      const resp=  await  fetch('https://dummyjson.com/posts/1',{
+          method:"GET"
+           })
+             const respdata = await resp.json();
+            console.log( "status",resp.status)
+     console.log("body",respdata)
+      })
+
+
+
+//add a post to server
+          PostBtn.addEventListener 
+    ("click",  async function() {
+        //you want to get something from the server--->wu use  get request;
+      const resp=  await  fetch('https://dummyjson.com/posts/add',
+      {
+          method:"Post",
+           body: JSON.stringify({
+    title: 'I am in love with someone.',
+    userId: 5,
+  
+     }),
+       headers: { 'Content-Type': 'application/json' },
+      })
+      const respdata = await resp.json();
+      //what is the final status of response 
+     console.log( "status",resp.status)
+     console.log("body",respdata)
+    })
+
+
+//for updating something inn server
+
+       patchBtn.addEventListener 
+    ("click",  async function() {
+        //you want to get something from the server--->wu use  get request;
+      const resp=  await  fetch('https://dummyjson.com/products/1', {
+  method: 'PATCH', /* or PATCH */
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    // title: 'iPhone Galaxy +1'
+  })
+})
+// .then(res => res.json())
+// .then(console.log);
+
+
+const respdata= await resp.json();
+//->what is tyhe final ststus of response
+console.log("status" , resp.status);
+console.log("body",respdata);
+    })
+  
+
+    // for deleting from the server
+
+      DeleteBtn.addEventListener 
+    ("click",  async function() {
+        //you want to get something from the server--->wu use  get request;
+      const resp=  await  fetch('https://dummyjson.com/products/1', {
+  method: 'DELETE', /* or PATCH */
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    // title: 'iPhone Galaxy +1'
+  })
+})
+// .then(res => res.json())
+// .then(console.log);
+
+
+const respdata= await resp.json();
+//->what is tyhe final ststus of response
+console.log("status" , resp.status);
+console.log("body",respdata);
+    })
+
+
+
+</script>
+</body>
+</html>
+
+
+<!-- 
+// //fetch('https://dummyjson.com/posts/1', {
+//   method: 'DELETE', -->
