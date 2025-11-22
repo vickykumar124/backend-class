@@ -105,7 +105,6 @@ function createPost(req, res) {
     postsArr.push(req.body);
 
     fs.writeFileSync("posts.json", JSON.stringify(jsonPosts, null, 2)); // Save to file
-
     res.status(201).json({
       message: "Post created successfully!",
       newPost: req.body
