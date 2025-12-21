@@ -50,7 +50,7 @@ app.post("/posts",AfterFn);
 
 app.use(function(req,res){
     res.status(400).json({
-        message:"404 Page not found",
+        message:"404 Bad request",
     
     })
 })
