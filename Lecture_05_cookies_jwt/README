@@ -1,0 +1,56 @@
+# Lecture 05 – Cookies & JWT (Backend)
+
+
+This project demonstrates how Cookies and JWT authentication
+work in a Node.js and Express backend application.
+
+
+## Folder Structure
+Lecture_05_cookies_jwt
+├── 01_cookies
+├── 02_JWT
+
+## Features
+- Setting cookies in Express
+- Reading cookies using cookie-parser
+- JWT creation and verification
+- Storing JWT in HTTP-only cookies
+- Protecting routes using JWT
+
+
+## Tech Stack
+- Node.js
+- Express.js
+- Cookie Parser
+- JSON Web Token (JWT)
+
+
+## How to Run
+
+```bash
+npm install
+nodemon api.js
+
+
+
+Agar multiple folders hain:
+```md
+cd 01_cookies
+npm install
+nodemon api.js
+
+
+## API Routes
+| Method | Route | Description |
+|------|------|------------|
+| GET | /sign | Generate JWT |
+| GET | /verify | Verify JWT |
+
+
+
+## Output
+- JWT stored in browser cookies
+- Successful token verification
+
+## Author
+Vicky Kumar
