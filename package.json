@@ -19,7 +19,6 @@
   "homepage": "https://github.com/vickykumar124/BACKEND-CLASS#readme",
   "description": "",
   "dependencies": {
-    "express": "^5.1.0",
     "mongoose": "^9.0.0"
   },
   "devDependencies": {

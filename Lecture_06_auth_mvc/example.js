@@ -4,7 +4,7 @@ const password="10";
 
 async function create(){
     console.time();
-    const randomSalt=await bcrypt.genSalt(10);
+    const randomSalt=await bcrypt.genSalt(15);
     const hash=await bcrypt.hash(password,randomSalt);
     const isTheSameorNot=await bcrypt.compare(password,hash);
     console.timeEnd();
