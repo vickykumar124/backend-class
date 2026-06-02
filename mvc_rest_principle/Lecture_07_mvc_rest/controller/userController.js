@@ -1,6 +1,6 @@
-const  userModel=  require("./userModel");
 
 /********Handler function ->user k  h******************/ 
+const  userModel=  require("../model/userModel");
 const createUser = async function (req, res) {
     try {
         const userObject = req.body;

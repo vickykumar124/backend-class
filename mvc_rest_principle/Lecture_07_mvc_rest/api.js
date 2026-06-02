@@ -36,14 +36,14 @@ app.use(cookieparser());
 
 
 /*auth k method and routes**/
-const{loginHandler,signupHandler,logoutHandler, 
+const  {loginHandler,signupHandler,logoutHandler, 
 protectRouteMiddleware,  profilehandler,
-isAdminMiddleWare}=require("./authController");
+isAdminMiddleWare} =require("./controller/authController");
 
-app.post("/login", loginHandler);
-app.post("/signup", signupHandler);
- app.get("/logout", logoutHandler);
- app.get("/profile",  protectRouteMiddleware,  profilehandler);
+app.post("/api/signup", signupHandler);
+app.post("/api/login", loginHandler);
+ app.get("/api/logout", logoutHandler);
+ app.get("/api/profile",  protectRouteMiddleware,  profilehandler);
 
 
 
@@ -226,13 +226,21 @@ app.post("/signup", signupHandler);
 
 
 /*****user routes and  their handler function**************/ 
-const{createUser,getAllUser,getUser,deleteUser}=require("./userController")
-app.post("/user", createUser)
-app.get("/user",  getAllUser);
-app.get("/user/:id", getUser);
-app.delete("/user/:id", protectRouteMiddleware, deleteUser);
+const{createUser,getAllUser,getUser,deleteUser}=require("./controller/userController")
+app.post("/api/user", createUser)
+app.get("/api/user",  getAllUser);
+app.get("/api/user/:id", getUser);
+app.delete("/api/user/:id", protectRouteMiddleware, deleteUser);
 
-/***************auth k methods & routes*************************************/ 
+/***************movie roiutes and handler*************************************/ 
+const{createMovie,getAllMovie,getMovie,deleteMovie}=require("./controller/movieController");
+app.post("/api/movie", createMovie);
+app.get("/api/movie", protectRouteMiddleware,isAdminMiddleWare, getAllMovie);
+app.get("/api/movie/:id", getMovie);
+app.delete("/api/movie/:id", protectRouteMiddleware, deleteMovie);
+
+
+
 
 app.listen(3000, function () {
     console.log("Server started on port 3000")
