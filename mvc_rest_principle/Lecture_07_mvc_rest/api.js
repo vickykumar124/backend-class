@@ -36,14 +36,27 @@ app.use(cookieparser());
 
 
 /*auth k method and routes**/
-const  {loginHandler,signupHandler,logoutHandler, 
-protectRouteMiddleware,  profilehandler,
-isAdminMiddleWare} =require("./controller/authController");
+// const authRouter=express.Router();
 
-app.post("/api/signup", signupHandler);
-app.post("/api/login", loginHandler);
- app.get("/api/logout", logoutHandler);
- app.get("/api/profile",  protectRouteMiddleware,  profilehandler);
+
+
+
+const authRouter = require("./router/authRouter.js");
+const userRouter = require("./router/userRouter.js");
+const movieRouter = require("./router/movieRouter.js");
+
+app.use("/api/auth", authRouter);
+app.use("/api/user", userRouter);
+app.use("/api/movie", movieRouter);
+
+// const  {loginHandler,signupHandler,logoutHandler, 
+// protectRouteMiddleware,  profilehandler,
+// isAdminMiddleWare} =require("./controller/authController");
+
+// authRouter.post("/signup", signupHandler);
+// authRouter.post("/login", loginHandler);
+//  authRouter.get("/logout", logoutHandler);
+//  authRouter.get("/profile",  protectRouteMiddleware,  profilehandler);
 
 
 
@@ -226,18 +239,20 @@ app.post("/api/login", loginHandler);
 
 
 /*****user routes and  their handler function**************/ 
-const{createUser,getAllUser,getUser,deleteUser}=require("./controller/userController")
-app.post("/api/user", createUser)
-app.get("/api/user",  getAllUser);
-app.get("/api/user/:id", getUser);
-app.delete("/api/user/:id", protectRouteMiddleware, deleteUser);
+// const{createUser,getAllUser,getUser,deleteUser}=require("./controller/userController")
+// app.post("/api/user", createUser)
+// app.get("/api/user",  getAllUser);
+// app.get("/api/user/:id", getUser);
+// app.delete("/api/user/:id", protectRouteMiddleware, deleteUser);
 
 /***************movie roiutes and handler*************************************/ 
-const{createMovie,getAllMovie,getMovie,deleteMovie}=require("./controller/movieController");
-app.post("/api/movie", createMovie);
-app.get("/api/movie", protectRouteMiddleware,isAdminMiddleWare, getAllMovie);
-app.get("/api/movie/:id", getMovie);
-app.delete("/api/movie/:id", protectRouteMiddleware, deleteMovie);
+// const{createMovie,getAllMovie,getMovie,deleteMovie}=require("./controller/movieController");
+
+
+// app.post("/api/movie", createMovie);
+// app.get("/api/movie", protectRouteMiddleware,isAdminMiddleWare, getAllMovie);
+// app.get("/api/movie/:id", getMovie);
+// app.delete("/api/movie/:id", protectRouteMiddleware, deleteMovie);
 
 
 
